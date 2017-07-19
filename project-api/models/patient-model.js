@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const DataModel = require('./data-model.js');
 
-const patientSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const patientSchema = new Schema ({
   firstName: {
     type: String
   },
@@ -11,10 +13,10 @@ const patientSchema = new mongoose.Schema({
   email: {
     type: String
   },
-  password: {
-    type: String,
-  },
-  data:[DataModel]
+  password: {type:String},
+  picture:{},
+  phoneNumber:{type:String},
+  data:[DataModel.schema]
 });
 
 const PatientModel = mongoose.model('Patient', patientSchema);
